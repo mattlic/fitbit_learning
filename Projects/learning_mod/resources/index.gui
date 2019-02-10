@@ -7,10 +7,10 @@
   <image x="303" y="206" width="32" height="32" href="icons/dist.png" />
   <image x="12" y="206" width="32" height="32" href="icons/hr.png" />
 
-  <g transform="translate(50%,65%)" pointer-events="visible"  >
-    <arc id="leftArc" x="$-80" y="$-80" width="160" height="160" fill="greenyellow" arc-width="10" 
+  <g transform="translate(50%,63%)" pointer-events="visible"  >
+    <arc id="leftArc" x="$-83" y="$-83" width="166" height="166" fill="greenyellow" arc-width="10" 
       start-angle="-180" sweep-angle="180" />
-    <arc id="rightArc" x="$-160" y="$-160" width="160" height="160" fill="greenyellow" arc-width="10" 
+    <arc id="rightArc" x="$-166" y="$-166" width="166" height="166" fill="greenyellow" arc-width="10" 
       start-angle="0" sweep-angle="180"  />
     <animateTransform attributeType="rotate" from="0" to="360" begin="click" dur="0.8" easing="ease-in-out" />
   </g>
