@@ -66,6 +66,12 @@ clock.ontick = (evt) => {
     rightArc.style.fill = "red";
   }
   
+  leftArc.startAngle = -180 +((180 - (1.8 * charge))/2);
+  leftArc.sweepAngle = (1.8 * charge);
+
+  rightArc.startAngle = 0 + ((180 - (1.8 * charge)) /2);
+  rightArc.sweepAngle = (1.8 * charge);
+
   lblDate.text = `${zeroPad(dayOfMonth)} ${diplayMonth}`;
   lblDay.text = `${displayDay}`;
   lblTime.text = `${displayHours}:${mins}`;
