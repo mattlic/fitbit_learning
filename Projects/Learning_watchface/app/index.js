@@ -3,6 +3,7 @@ import document from "document";
 import { preferences } from "user-settings";
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
+import { battery } from "power";
 import {
   getDisplayMonth,
   getDisplayDay,
@@ -13,7 +14,7 @@ import {
 // Update the clock every minute
 clock.granularity = "minutes";
 
-// Get a handle on the <text> element
+// Get a handle on the <text> elements
 const lblDate= document.getElementById("date");
 const lblDay = document.getElementById("day");
 const lblTime = document.getElementById("time");
@@ -22,9 +23,14 @@ const lblSteps = document.getElementById("steps");
 const lblDist = document.getElementById("dist");
 const lblHr = document.getElementById("hr");
 
+// Get a handle on the other elements
+const leftArc = document.getElementById("leftArc");
+const rightArc = document.getElementById("rightArc");
+
+
 const hrm = new HeartRateSensor();
 hrm.onreading = function() {
-  console.log("Current heart rate: " + hrm.heartRate);
+  // console.log("Current heart rate: " + hrm.heartRate);
   lblHr.text = `${hrm.heartRate} bpm`; 
 }
 hrm.start();
@@ -43,7 +49,22 @@ clock.ontick = (evt) => {
   const displayHours = clockDisplay === "12h" ? hours % 12 || 12 : zeroPad(hours);
   const diplayMonth = getDisplayMonth(month);
   const displayDay = getDisplayDay(day);
-  
+
+  const charge = battery.chargeLevel;
+  console.log(Math.floor(battery.chargeLevel) + "%");
+  if (charge > 60) {
+    // set arc color to greenyellow
+    leftArc.style.fill = "greenyellow";
+    rightArc.style.fill = "greenyellow";
+  } else if (charge > 30) {
+    // set arc color to ornage
+    leftArc.style.fill = "#FF5A00";
+    rightArc.style.fill = "#FF5A00";
+  } else {
+    // set color red
+    leftArc.style.fill = "red";
+    rightArc.style.fill = "red";
+  }
   
   lblDate.text = `${zeroPad(dayOfMonth)} ${diplayMonth}`;
   lblDay.text = `${displayDay}`;
