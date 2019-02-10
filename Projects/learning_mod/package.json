@@ -1,17 +1,17 @@
 {
-  "name": "basic_clock_play",
+  "name": "learning_mod",
   "version": "0.1.0",
   "private": true,
   "license": "UNLICENSED",
   "fitbit": {
-    "appUUID": "90ddffa5-0d5f-45b8-8aae-e70c7b94e13c",
+    "appUUID": "9e738233-c245-4e6b-9f53-db6b6b79bf4f",
     "appType": "clockface",
-    "appDisplayName": "Basic_Clock_play",
+    "appDisplayName": "learning_mod",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
-      "access_heart_rate",
-      "access_activity"
+      "access_activity",
+      "access_heart_rate"
     ],
     "buildTargets": [
       "higgs",
@@ -19,15 +19,16 @@
     ],
     "i18n": {
       "en": {
-        "name": "Basic_Clock_play"
+        "name": "learning_mod"
       }
     }
+  },
+  "scripts": {
+    "build": "fitbit-build",
+    "debug": "fitbit"
   },
   "devDependencies": {
     "@fitbit/sdk": "^3.0.0",
     "@fitbit/sdk-cli": "^1.5.0"
-  },
-  "scripts": {
-    "build": "fitbit-build"
   }
 }

@@ -16,6 +16,7 @@ build/
 *.pid
 *.gz
 *.swp
+*.zip
 tmp
 
 #VSCode set up

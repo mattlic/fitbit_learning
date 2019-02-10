@@ -56,7 +56,7 @@ clock.ontick = (evt) => {
   // for testing
   // backimage.href = util.minTest(mins)); 
   
-  // update backgroung
+  // update background image
   backimage.href = util.pickImage( hours );
   
   if (preferences.clockDisplay === "12h") {
