@@ -1,0 +1,7 @@
+<svg class="background">
+  <image id="bkimage" />
+  <text id="timeText" />
+  <text id="stepText" />
+  <text id="heartText" />
+</svg>
+

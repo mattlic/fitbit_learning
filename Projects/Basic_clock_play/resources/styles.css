@@ -1,0 +1,47 @@
+.background {
+  viewport-fill: red;
+}
+
+#myLabel {
+  font-size: 80;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 50%+40;
+  fill: white;
+}
+
+
+#timeText {
+  font-size: 80;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 50%+40;
+  fill: white;
+}
+
+
+#stepText {
+  font-size: 25;
+  font-family: System-Regular;
+  text-length: 32;
+  text-anchor: start;
+  text-overflow: ellipsis;
+  x: 50%+10;
+  y: 50%+80;
+  fill: yellow;
+}
+
+#heartText {
+  font-size: 25;
+  font-family: System-Regular;
+  text-length: 32;
+  text-anchor: end;
+  text-overflow: ellipsis;
+  x: 50%-32;
+  y: 50%+80;
+  fill: yellow;
+}

@@ -4,10 +4,15 @@
   <image x="303" y="12" width="32" height="32" href="icons/steps.png" />
   <image x="303" y="206" width="32" height="32" href="icons/dist.png" />
   <image x="12" y="206" width="32" height="32" href="icons/hr.png" />
-  
-  <arc id="leftArc" x="61" y="12" width="226" height="226" fill="greenyellow" arc-width="10" start-angle="-180" sweep-angle="180" />
-  <arc id="rightArc" x="61" y="12" width="226" height="226" fill="greenyellow" arc-width="10" start-angle="0" sweep-angle="180" />
-  
+
+  <g transform="translate(50%,50%)" pointer-events="visible"  >
+    <arc id="leftArc" x="-113" y="-113" width="226" height="226" fill="greenyellow" arc-width="10" 
+      start-angle="-180" sweep-angle="180" />
+    <arc id="rightArc" x="-113" y="-113" width="226" height="226" fill="greenyellow" arc-width="10" 
+      start-angle="0" sweep-angle="180"  />
+    <animateTransform attributeType="rotate" from="0" to="360" begin="click" dur="0.8" easing="ease-in-out" />
+  </g>
+
   <g transform="rotate(-45)" >
     <text id="floors" />
   </g>
@@ -20,7 +25,7 @@
   <g transform="rotate(45)" >
     <text id="hr" />
   </g>
-
+  
   <text id="date" />
   <text id="day" />
   <text id="time" />

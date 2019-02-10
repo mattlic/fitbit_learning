@@ -1,0 +1,25 @@
+{
+  "fitbit": {
+    "appUUID": "90ddffa5-0d5f-45b8-8aae-e70c7b94e13c",
+    "appType": "clockface",
+    "appDisplayName": "Basic_Clock_play",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_heart_rate",
+      "access_activity"
+    ],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "Basic_Clock_play"
+      }
+    }
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.0.0"
+  }
+}
