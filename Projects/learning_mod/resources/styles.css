@@ -17,8 +17,8 @@
   font-family: System-Bold;
   text-length: 9;
   text-anchor: middle;
-  x: 246;
-  y: -160;
+  x: 249;
+  y: -163;
   fill: white;
 }
 
@@ -63,7 +63,7 @@
 }
 
 #time {
-  font-size: 60;
+  font-size: 65;
   font-family: System-Bold;
   text-length: 32;
   text-anchor: middle;
