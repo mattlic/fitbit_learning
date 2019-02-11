@@ -1,12 +1,12 @@
 {
-  "name": "learning_mod",
+  "name": "busy_at_sea",
   "version": "0.1.0",
   "private": true,
   "license": "UNLICENSED",
   "fitbit": {
     "appUUID": "9e738233-c245-4e6b-9f53-db6b6b79bf4f",
     "appType": "clockface",
-    "appDisplayName": "learning_mod",
+    "appDisplayName": "Busy at Sea",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
@@ -14,12 +14,11 @@
       "access_heart_rate"
     ],
     "buildTargets": [
-      "higgs",
-      "meson"
+      "higgs"
     ],
     "i18n": {
       "en": {
-        "name": "learning_mod"
+        "name": "Busy at Sea"
       }
     }
   },

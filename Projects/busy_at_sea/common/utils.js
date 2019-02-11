@@ -64,7 +64,7 @@ export function pickImage( hours ) {
     backimage = "images/nighttime.jpg";
   } else if (hours < 9) {
     backimage = "images/morning.jpg";
-  } else if (hours < 18) {
+  } else if (hours < 17) {
     backimage = "images/daytime.jpg";
   } else if (hours < 20) {
     backimage = "images/sunset.jpg";

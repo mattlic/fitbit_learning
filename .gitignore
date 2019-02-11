@@ -19,5 +19,8 @@ build/
 *.zip
 tmp
 
+#FitBit app builds
+app.fba
+
 #VSCode set up
 ./vscode
