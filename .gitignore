@@ -19,8 +19,17 @@ build/
 *.zip
 tmp
 
+#creenshot folders
+screenshots/
+screenshots/*
+
 #FitBit app builds
-app.fba
+build/
+*.fba
+
+#fitbit studio exports
+fitbitStudioExports/
+fitbitStudioExports/*
 
 #VSCode set up
 ./vscode
