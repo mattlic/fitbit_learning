@@ -29,7 +29,9 @@ console.log("backImage is: " + backImage.href);
 // Get a handle on the <text> elements
 const lblDate = document.getElementById("date");
 const lblDay = document.getElementById("day");
-const lblTime = document.getElementById("time");
+// const lblTime = document.getElementById("time");
+const lblTimeMin = document.getElementById("timeMin");
+const lblTimeHr = document.getElementById("timeHr");
 const lblFloors = document.getElementById("floors");
 const lblSteps = document.getElementById("steps");
 const lblDist = document.getElementById("dist");
@@ -103,8 +105,11 @@ clock.ontick = (evt) => {
   // Update the digital clock face
   lblDate.text = `${zeroPad(dayOfMonth)} ${diplayMonth}`;
   lblDay.text = `${displayDay}`;
-  lblTime.text = `${displayHours}:${mins}`;
-  
+  // lblTime.text = `${displayHours}:${mins}`;
+
+  lblTimeHr.text = displayHours;
+  lblTimeMin.text = mins;
+
   // Update the activity status text
   lblFloors.text = (today.local.elevationGain || 0 );
   lblSteps.text = (today.local.steps || 0);

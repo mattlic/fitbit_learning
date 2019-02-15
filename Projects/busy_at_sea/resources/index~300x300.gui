@@ -2,10 +2,8 @@
 
   <image id="bkimage" />
   
- 
-  <image x="303" y="12" width="32" height="32" href="icons/steps.png" />
-  <image x="303" y="206" width="32" height="32" href="icons/dist.png" />
-  <image x="12" y="206" width="32" height="32" href="icons/hr.png" />
+  <image x="256" y="256" width="32" height="32" href="icons/dist.png" />
+  <image x="13" y="258" width="32" height="32" href="icons/hr.png" />
 
   <g transform="translate(50%,63%)" pointer-events="visible"  >
     <arc id="leftArc" x="$-83" y="$-83" width="166" height="166" fill="greenyellow" arc-width="10" 
@@ -15,14 +13,18 @@
     <animateTransform attributeType="rotate" from="0" to="360" begin="click" dur="0.8" easing="ease-in-out" />
   </g>
 
-  <g transform="translate(-13%,-17%)" >
-     <image x="16%" y="22%" width="32" height="32" href="icons/floors.png" />
+  <g transform="translate(-22%,-22%)" >
+     <image x="26%" y="26%" width="32" height="32" href="icons/floors.png" />
     <g transform="rotate(-45)" >
       <text x="2" id="floors" />
     </g>
+  </g>
+
+  <g transform="translate(126%,-19%)" >
+    <image x="-33%" y="23%" width="32" height="32" href="icons/steps.png" />
+    <g transform="rotate(45)" > 
+      <text id="steps" />
     </g>
-  <g transform="rotate(45)" > 
-     <text id="steps" />
   </g>
   <g transform="rotate(-45)" >
     <text id="dist" />
@@ -34,18 +36,20 @@
   <text id="date" />
   <text id="day" />
   <text id="time" />
+  <text id="timeHr" />
+  <text id="timeSep">:</text>
+  <text id="timeMin" />
 
-  <g id="minHand" pointer-events="visible" transform="translate(50%,63%)">
-    <rect x="$-3" y="-70" width="6" height="70" fill="yellow" />
-    <image x="0" y="0" width="6" height="70" href=mins.png />
-  </g>
-  <g id="hourHand" pointer-events="visible" transform="translate(50%,63%)">
-    <rect x="$-6" y="-53" width="12" height="53" fill="green" />
-    <image x="-7" y="-55" width="14" height="55" href="images/hrs.png" />
-  </g>
   <g id="secHand" pointer-events="visible" transform="translate(50%,63%)" visibility="hidden">
     <rect x="$-2" y="-77" width="4" height="77" fill="#ff0000" />
   </g>
-  <circle cx="50%" cy="63%" r="6" fill="blue" />
+  <g id="minHand" pointer-events="visible" transform="translate(50%,63%)">
+    <image x="-4" y="-70" width="8" height="70" href="images/mins.png" />
+  </g>
+  <g id="hourHand" pointer-events="visible" transform="translate(50%,63%)">
+    <image x="-9" y="-55" width="18" height="55" href="images/hrs.png" />
+  </g>
+
+  <circle cx="50%" cy="63%" r="6" fill="green" />
 
 </svg>

@@ -15,6 +15,8 @@
   font-family: System-Bold;
   text-length: 9;
   text-anchor: middle;
+  x: 249;
+  y: -163;
   fill: white;
 }
 
@@ -23,6 +25,8 @@
   font-family: System-Bold;
   text-length: 9;
   text-anchor: middle;
+  x: 72;
+  y: 351;
   fill: white;
 }
 
@@ -31,6 +35,8 @@
   font-family: System-Bold;
   text-length: 9;
   text-anchor: middle;
+  x: 175;
+  y: 105;
   fill: white;
 }
 
@@ -61,5 +67,35 @@
   text-anchor: middle;
   x: 50%;
   y: 25%-5;
+  fill: white;
+}
+
+#timeHr {
+  font-size: 66;
+  font-family: System-Bold;
+  text-length: 2;
+  text-anchor: end;
+  x: 50%-6;
+  y: 25%-5;
+  fill: white;
+}
+
+#timeMin {
+  font-size: 60;
+  font-family: System-Bold;
+  text-length: 2;
+  text-anchor: start;
+  x: 50%+5;
+  y: 25%-6;
+  fill: white;
+}
+
+#timeSep {
+  font-size: 65;
+  font-family: System-Bold;
+  text-length: 1;
+  text-anchor: middle;
+  x: 50%;
+  y: 25%-6;
   fill: white;
 }

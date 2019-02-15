@@ -1,6 +1,6 @@
 {
   "name": "busy_at_sea",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "license": "UNLICENSED",
   "fitbit": {
@@ -14,7 +14,8 @@
       "access_heart_rate"
     ],
     "buildTargets": [
-      "higgs"
+      "higgs",
+      "meson"
     ],
     "i18n": {
       "en": {

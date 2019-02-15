@@ -58,18 +58,18 @@ export function secondsToAngle(seconds) {
 //pick the image based on the time
 export function pickImage( hours ) {
   //set an obvious default
-  let backimage = "images/hot-asian.jpg" ;
+  let backimage = "images/ufoboat.png" ;
   //pick the image based on the time
   if (hours < 6) {
-    backimage = "images/nighttime.jpg";
+    backimage = "images/nighttime.png";
   } else if (hours < 9) {
-    backimage = "images/morning.jpg";
+    backimage = "images/morning.png";
   } else if (hours < 17) {
-    backimage = "images/daytime.jpg";
+    backimage = "images/daytime.png";
   } else if (hours < 20) {
-    backimage = "images/sunset.jpg";
+    backimage = "images/sunset.png";
   } else {
-    backimage = "images/nighttime.jpg";
+    backimage = "images/nighttime.png";
   }
   return backimage;
  }
