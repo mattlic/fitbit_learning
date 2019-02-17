@@ -20,9 +20,9 @@ function round(n, digits) {
    }
 
 export function calculateDistance( meters, units ) {
-  if (units == "km") {
+  if (units == "metric") {
     return `${round(meters /1000, 2)} km`;
-  } else if (units == "miles") {
+  } else if (units == "us") {
     return `${round(meters * 0.000621371192, 2)} mi`;
   } else {
     return `${meters} m`;

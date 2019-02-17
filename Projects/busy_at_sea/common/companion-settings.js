@@ -1,7 +1,7 @@
 import * as messaging from "messaging";
 import { settingsStorage } from "settings";
 
-function initialize() {
+export function initialize() {
   console.log("Initialize companion callback");
   settingsStorage.addEventListener("change", evt => {
     if (evt.oldValue !== evt.newValue) {
@@ -24,13 +24,8 @@ function sendValue(key, val) {
 function sendSettingData(data) {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send(data);
-    console.log("Setting sent over peerSocket connection" + data.key + " : " + data.value);
+    console.log("Setting sent over peerSocket connection" + data);
   } else {
     console.log("No peerSocket connection");
   }
 }
-
-
-// console.log('Hello world! from the companion app');
-
-initialize();

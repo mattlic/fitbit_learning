@@ -1,6 +1,9 @@
 import clock from "clock";
 import document from "document";
-import { preferences } from "user-settings";
+import { 
+  preferences,
+  units
+ } from "user-settings";
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
 import { battery } from "power";
@@ -14,6 +17,7 @@ import {
   minutesToAngle,
   secondsToAngle,
  } from "../common/utils";
+ import * as simpleSettings from "../common/device-settings";
 
 // Update the clock every minute
 clock.granularity = "minutes";
@@ -32,6 +36,7 @@ const lblDay = document.getElementById("day");
 // const lblTime = document.getElementById("time");
 const lblTimeMin = document.getElementById("timeMin");
 const lblTimeHr = document.getElementById("timeHr");
+const lblTimeSeperator = document.getElementById("timeSep");
 const lblFloors = document.getElementById("floors");
 const lblSteps = document.getElementById("steps");
 const lblDist = document.getElementById("dist");
@@ -67,6 +72,9 @@ clock.ontick = (evt) => {
   const displayHours = clockDisplay === "12h" ? hours % 12 || 12 : zeroPad(hours);
   const diplayMonth = getDisplayMonth(month);
   const displayDay = getDisplayDay(day);
+
+  const {distance} = units;
+  // console.log("distance units: " + distance);
 
   const charge = battery.chargeLevel;
   // console.log(Math.floor(battery.chargeLevel) + "%");
@@ -113,6 +121,32 @@ clock.ontick = (evt) => {
   // Update the activity status text
   lblFloors.text = (today.local.elevationGain || 0 );
   lblSteps.text = (today.local.steps || 0);
-  lblDist.text = calculateDistance((today.local.distance || 0), "miles");
+  lblDist.text = calculateDistance((today.local.distance || 0), distance);
   
 }
+
+/* -------- SETTINGS -------- */
+function settingsCallback(data) {
+  console.log("settings callback triggered");
+  if (!data) {
+    return;
+  }
+  if (data.colorDivider) {
+    lblTimeSeperator.style.fill = data.colorDivider;
+  }
+  if (data.colorTime) {
+    lblTimeHr.style.fill = data.colorTime;
+    lblTimeMin.style.fill = data.colorTime;
+  }
+  if (data.colorDate) {
+    lblDate.style.fill = data.colorDate;
+    lblDay.style.fill = data.colorDate;
+  }
+  if (data.colorDataText) {
+    lblFloors.style.fill = data.colorDataText;
+    lblSteps.style.fill = data.colorDataText;
+    lblDist.style.fill = data.colorDataText;
+    lblHr.style.fill = data.colorDataText;
+  }
+}
+simpleSettings.initialize(settingsCallback);
