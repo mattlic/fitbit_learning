@@ -4,7 +4,7 @@
   Callback should be used to update your UI.
 */
 import { me } from "appbit";
-import { me as device } from "device";
+// import { me as device } from "device";
 import * as fs from "fs";
 import * as messaging from "messaging";
 

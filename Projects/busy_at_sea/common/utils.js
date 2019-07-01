@@ -55,8 +55,22 @@ export function secondsToAngle(seconds) {
 }
 
 
+export function isTime1BeforeTime2( hours1, minutes1, hours2, minutes2) {
+  if(hours1 < hours2) {
+      return true;
+  } else if (( hours1 === hours2)) {
+      if (minutes1 < minutes2) {
+          return true;
+      }
+  }
+  return false;
+}
+
+
+
+
 //pick the image based on the time
-export function pickImage( hours ) {
+export function simplePickImage( hours ) {
   //set an obvious default
   let backimage = "images/ufoboat.png" ;
   //pick the image based on the time

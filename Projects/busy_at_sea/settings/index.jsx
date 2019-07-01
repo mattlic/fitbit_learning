@@ -70,20 +70,31 @@ function mySettings(props) {
       <Section
         title={
           <Text>
-            Morning start time
+            Transition times for parts of the day  (24 hour format)
           </Text>
-        }>
+        } >
         <TextInput
-          title="Set Morning Start hour (24 hour format)"
-          label="Morning Hour"
-          settingsKey="morningHour"
+          title="Set Morning Start - 24 hour format"
+          label="Morning time starts"
+          settingsKey="morningTimeStart"
         />
         <TextInput
-          title="Set Morning Start minute"
-          label="Morning Minutes"
-          settingsKey="morningMin"
+        title="Set Daytime Start - 24 hour format"
+        label="Day time starts"
+        settingsKey="dayTimeStart"
+        />
+        <TextInput
+        title="Set Sunset Start - 24 hour format"
+        label="Sunset starts"
+        settingsKey="sunsetTimeStart"
+        />
+        <TextInput
+        title="Set Night Time Start - 24 hour format"
+        label="Night time starts"
+        settingsKey="nightTimeStart"
         />
       </Section>
+
       {options.map(([title, settingsKey]) =>
         <Section
           title={title}>

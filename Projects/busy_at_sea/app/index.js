@@ -16,6 +16,7 @@ import {
   hoursToAngle,
   minutesToAngle,
   secondsToAngle,
+  isTime1BeforeTime2,
  } from "../common/utils";
  import * as simpleSettings from "../common/device-settings";
 
@@ -24,7 +25,7 @@ clock.granularity = "minutes";
 
 // Get the background so we can insert the righ image
 const backImage = document.getElementById("bkimage");
-console.log("backImage is: " + backImage.href);
+// console.log("backImage is: " + backImage.href);
 
 // for testing adding the image
 // backImage.href = "images/hot-asian.jpg" ;
@@ -51,12 +52,44 @@ const secHand = document.getElementById("secHand");
 const leftArc = document.getElementById("leftArc");
 const rightArc = document.getElementById("rightArc");
 
+//set up times for switching the background image
+let morningStartHour = 6;
+let morningStartMinutes = 0;
+let daytimeStartHour = 9;
+let daytimeStartMinutes = 15;
+let sunsetStartHour = 17;
+let sunsetStartMinutes = 30;
+let nighttimeStartHour = 20;
+let nighttimeStartMinutes = 0;
+
+// setup and monitor heart rate (HR)
 const hrm = new HeartRateSensor();
 hrm.onreading = function() {
   // console.log("Current heart rate: " + hrm.heartRate);
   lblHr.text = `${hrm.heartRate} bpm`; 
 }
 hrm.start();
+
+//pick the image based on the time
+function pickImage( testHours, testMinutes ) {
+  //set an obvious default
+  let backimage = "images/ufoboat.png" ;
+  //pick the image based on the time
+  if (isTime1BeforeTime2(testHours, testMinutes, morningStartHour, morningStartMinutes) ) {
+    backimage = "images/nighttime.png";
+  } else if (isTime1BeforeTime2(testHours, testMinutes, daytimeStartHour, daytimeStartMinutes) ) {
+    backimage = "images/morning.png";
+  } else if (isTime1BeforeTime2(testHours, testMinutes, sunsetStartHour, sunsetStartMinutes) ) {
+    backimage = "images/daytime.png";
+  } else if (isTime1BeforeTime2(testHours, testMinutes, nighttimeStartHour, nighttimeStartMinutes) ){
+    backimage = "images/sunset.png";
+  } else {
+    backimage = "images/nighttime.png";
+  }
+  return backimage;
+ }
+
+
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
@@ -80,8 +113,8 @@ clock.ontick = (evt) => {
   // console.log(Math.floor(battery.chargeLevel) + "%");
 
   // update background image
-  backImage.href = pickImage( hours );
-  
+  // backImage.href = simplePickImage( hours );
+  backImage.href = pickImage( parseInt(hours), parseInt( mins) );
 
   // set and display the arcs for charge based on percentage
   if (charge > 65) {
@@ -127,8 +160,11 @@ clock.ontick = (evt) => {
 
 /* -------- SETTINGS -------- */
 function settingsCallback(data) {
-  console.log("settings callback triggered");
+  // console.log("settings callback triggered");
+  console.log('data sent from companion is: ' + JSON.stringify(data));
+
   if (!data) {
+    console.log("NoOp quick return from settings callback - !data")
     return;
   }
   if (data.colorDivider) {
@@ -147,6 +183,34 @@ function settingsCallback(data) {
     lblSteps.style.fill = data.colorDataText;
     lblDist.style.fill = data.colorDataText;
     lblHr.style.fill = data.colorDataText;
+  }
+  if (data.morningTimeStart) {
+    // console.log("morningTimeStart[name] is: " + data.morningTimeStart['name']);
+    var timeParts = JSON.stringify(data.morningTimeStart['name']).replace(/"/g,'').split(':');
+    morningStartHour = parseInt(timeParts[0]);
+    morningStartMinutes = parseInt(timeParts[1]);
+    console.log('morningStart is ' + morningStartHour + ':' + morningStartMinutes);
+  }
+  if (data.dayTimeStart) {
+    // console.log("dayTimeStart[name] is: " + data.dayTimeStart['name']);
+    var timeParts = JSON.stringify(data.dayTimeStart['name']).replace(/"/g,'').split(':');
+    daytimeStartHour = parseInt(timeParts[0]);
+    daytimeStartMinutes = parseInt(timeParts[1]);
+    console.log('dayTimeStart is ' + daytimeStartHour + ':' + daytimeStartMinutes);
+  }
+  if (data.sunsetTimeStart) {
+    // console.log("sunsetTimeStart[name] is: " + data.sunsetTimeStart['name']);
+    var timeParts = JSON.stringify(data.sunsetTimeStart['name']).replace(/"/g,'').split(':');
+    sunsetStartHour = parseInt(timeParts[0]);
+    sunsetStartMinutes = parseInt(timeParts[1]);
+    console.log('sunsetTimeStart is ' + sunsetStartHour + ':' + sunsetStartMinutes);
+  }
+  if (data.nightTimeStart) {
+    // console.log("nightTimeStart[name] is: " + data.nightTimeStart['name']);
+    var timeParts = JSON.stringify(data.nightTimeStart['name']).replace(/"/g,'').split(':');
+    nighttimeStartHour = parseInt(timeParts[0]);
+    nighttimeStartMinutes = parseInt(timeParts[1]);
+    console.log('nightTimeStart is ' + nighttimeStartHour + ':' + nighttimeStartMinutes);
   }
 }
 simpleSettings.initialize(settingsCallback);
