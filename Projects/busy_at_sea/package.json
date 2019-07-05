@@ -1,8 +1,8 @@
 {
   "name": "busy_at_sea",
-  "version": "0.1.2",
-  "private": true,
-  "license": "UNLICENSED",
+  "version": "0.1.4",
+  "private": false,
+  "license": "MS-PL",
   "fitbit": {
     "appUUID": "9e738233-c245-4e6b-9f53-db6b6b79bf4f",
     "appType": "clockface",
@@ -15,7 +15,8 @@
     ],
     "buildTargets": [
       "higgs",
-      "meson"
+      "meson",
+      "gemini"
     ],
     "i18n": {
       "en": {
