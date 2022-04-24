@@ -17,7 +17,29 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ master ]
+  
+  # Schedule (yaml CRON jobs) - run at a scheduled time
+  #   Docs from: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+  #   but since I never remeber the format and details, an explination is below
+  #
+  #   * is a special character in YAML so you have to quote this string
+  #
+  #  ┌───────────── minute (0 - 59)
+  #  │ ┌───────────── hour (0 - 23)
+  #  │ │ ┌───────────── day of the month (1 - 31)
+  #  │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+  #  │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+  #  │ │ │ │ │
+  #  * * * * *
+  #
+  #  use these operators in any of the five fields --  Operator	Description - Example
+  #  *	Any value -	15 * * * * runs at every minute 15 of every hour of every day.
+  #  ,	Value list separator -	2,10 4,5 * * * runs at minute 2 and 10 of the 4th and 5th hour of every day.
+  #  -	Range of values -	30 4-6 * * * runs at minute 30 of the 4th, 5th, and 6th hour.
+  #  /	Step values -	20/15 * * * * runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50).
+  #
   schedule:
+    #  this runs 39 minutes minutes after the hour 1300, any day, any month, on Thursday ( 1339 every Thursday)
     - cron: '39 13 * * 4'
 
 jobs:
